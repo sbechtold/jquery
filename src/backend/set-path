@@ -19,5 +19,4 @@ export MONGOD_EXE=$MONGO_HOME/mongod
 PATH=$DIR:$ANGULAR_HOME/node_modules/.bin:$MONGO_HOME:$NODE_HOME:$ANGULAR_HOME/backend/bin/$ENV/$ARCH/:$EXE_HOME/scripts/:$PATH
 
 chmod u+x $EXE_HOME/scripts/* $ANGULAR_HOME/backend/httpServer/*.js
-chmod u+x $ANGULAR_HOME/node_modules/protractor/selenium/*
 chmod u+x $ANGULAR_HOME/node_modules/.bin/* $NODE_HOME/* $MONGO_HOME/*
