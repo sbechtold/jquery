@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+    <html>
+     <head>
+        <title>Javascript Functions</title>
+    </head>
+    <body>
+        
+        <script language="javascript" type="text/javascript">
+        
+            var globalString = new String("Hello World");
+            var globalNumber = new Number(1234);
+            var globalDate = new Date();
+            
+            console.log("substr", globalString.substr(0, 5));
+            console.log("substring", globalString.substring(0, 5));
+            
+            console.log("indexOf", globalString.indexOf("World"));
+            console.log("search", globalString.search("World"));
+            console.log("slice", globalString.slice(0, 5));
+            
+            console.log("final result of globalString", globalString);
+            
+            
+            console.log("parseInt invalid", parseInt("abcd"));
+            console.log("parseInt valid", parseInt("1234"));
+            console.log("parseInt with decimals", parseInt("1234.1234"));
+            
+            console.log("isNaN with bad number", isNaN("abcd"));
+            console.log("isNaN with a valid number", isNaN("1234"));
+            
+            console.log("parseFloat invalid", parseFloat("abcd"));
+            console.log("parseFloat valid", parseFloat("1234.1234"));
+            
+            
+            function incrememntBy(increment) {
+                var localVar = globalNumber + increment;
+                return localVar;
+            }
+            
+            console.log("Result of increment by", incrememntBy(2));
+            try {
+                console.log("evaluation of function variable", localVar);
+            } catch (e)  {
+                console.error("An error occured looking for localVar", e);
+            }
+            
+            console.log("typeof globalString", typeof globalString);
+            console.log("instanceof globalString", globalString instanceof String);
+            
+            console.log("typeof globalNumber", typeof globalNumber);
+            console.log("instanceof globalNumber", globalNumber instanceof Number);
+            
+            console.log("typeof globalDate", typeof globalDate);
+            console.log("instanceof globalDate", globalDate instanceof Date);
+            console.log("instanceof globalDate is string?", globalDate instanceof String);
+        </script>
+    </body>
+</html>

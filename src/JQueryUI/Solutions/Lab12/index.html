@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+    <html>
+     <head>
+         <title>JQuery UI</title>
+        <link href="/common/js/jquery-ui/jquery-ui.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-ui/jquery-ui.theme.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-ui/jquery-ui.structure.css" type="text/css" rel="stylesheet" />
+    </head>
+    <body>
+        
+       <div id="loading" style="padding:10pt;text-align:center">
+            <h2>Loading</h2>
+        </div>
+        
+        
+        <div id="container">            
+            <div id="available">
+                <h2>Available</h2>
+            </div>
+        </div>
+        <br clear="all" /> 
+        
+        <div class="ui-dialog" id="viewState" title="View State">
+              <table>
+                  <tr>
+                      <td>Name</td>
+                      <td id="stateName"></td>
+                  </tr>
+                  <tr>
+                      <td>Abbreviation</td>
+                      <td id="abbreviation"></td>
+                  </tr>
+                  <tr>
+                      <td>Capital</td>
+                      <td id="capital"></td>
+                  </tr>
+              </table>
+        </div>
+        
+        <script src="/common/js/jquery/jquery.js"></script>
+        <script src="/common/js/jquery-ui/jquery-ui.js"></script>
+        
+        <script language="javascript" type="text/javascript">
+            /*
+            
+            Fetch all of the states from the server using http://localhost:7081/States
+            
+            Display them in a list of divs inside of the container div
+                You will want to list the state name
+                You will want to add a button to the item
+                
+            When the button is clicked for the given state you should launch a dialog which displays 
+            the selected state.
+            
+            */
+        
+            function getStates() {
+                $.getJSON("http://localhost:7081/States", function(states) {
+                    bind(states);
+                    
+                    $("#loading").hide();
+                    $("#container").show();
+                });
+            }
+        
+            function bind(data) {
+                $(data).each(function(i, one) { 
+                    if (!$.isEmptyObject(one)) {
+                        var state = $("<div />")
+                                .addClass("ui-widget-content")
+                                .text(one.name);
+                        state.append($("<button />").button( {
+                            label :"View"
+                        })).on("click", function(evnt) {
+                            launchDialog(one);
+                        });
+                        $("#available").append(state);        
+                    }
+                });
+                $("#available div:odd").css("background", "grey");
+            }
+            
+            
+            function launchDialog(state) {
+                console.log(state.name);
+                
+                $("#stateName").text(state.name);
+                $("#abbreviation").text(state.abbreviation);
+                $("#capital").text(state.capital);
+                
+                $("#viewState").dialog("open");
+            }
+            
+            $(document).ready(function() {
+                $("#loading").show();
+                $("#container").hide();
+                
+                
+                $( "#viewState" ).dialog({ autoOpen: false });
+                getStates();
+            });
+            
+        
+        </script>
+    </body>
+</html>

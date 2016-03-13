@@ -1,0 +1,97 @@
+<!-- 
+    Let's setup a simple form and then echo the values out as a dialog
+        Should have a first and last name
+        Show a toggle switch asking if we're having fun
+        Have a slider asking for the user's age
+-->
+<!DOCTYPE html>
+    <html>
+     <head>
+         <title>JQuery UI</title>
+        <link href="/common/js/jquery-mobile/jquery.mobile-1.4.5.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.external-png-1.4.5.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.icons-1.4.5.min.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.inline-png-1.4.5.min.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.inline-svg-1.4.5.min.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.structure-1.4.5.min.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.theme-1.4.5.min.css" type="text/css" rel="stylesheet" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        
+        
+        <!-- Start of first page: #one -->
+<div data-role="page" id="home">
+
+	<div data-role="header">
+		<h1>Registration</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		
+        <form>
+            <table>
+                <tr>
+                    <td>First Name</td>
+                    <td><input type="text" id="firstName" /></td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td><input type="text" id="lastName" /></td>
+                </tr>
+                <tr>
+                    <td>Are you having fun?</td>
+                    <td><select id="fun" data-role="flipswitch">
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Your Age</td>
+                    <td><input type="range" id="age" min="22" max="65" value="35"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <a href="#popup" class="ui-btn ui-shadow ui-corner-all" data-rel="dialog" data-transition="pop">Submit</a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        
+	</div><!-- /content -->
+</div><!-- /page one -->
+
+
+    <!-- Start of third page: #popup -->
+    <div data-role="page" id="popup">
+
+        <div data-role="header" data-theme="b">
+            <h1>Values</h1>
+        </div><!-- /header -->
+
+        <div role="main" class="ui-content">
+            <p>Value for First Name: <span id="valueForFirst" /></p>
+            <p>Value for Last Name: <span id="valueForLast" /></p>
+            <p>Value for Fun: <span id="valueForFun" /></p>
+            <p>Value for Age: <span id="valueForAge" /></p>
+        </div><!-- /content -->
+
+        <div data-role="footer">
+            <h4></h4>
+        </div><!-- /footer -->
+    </div><!-- /page popup -->
+    
+        <script src="/common/js/jquery/jquery.js"></script>
+        <script src="/common/js/jquery-mobile/jquery.mobile-1.4.5.js"></script>
+        
+        <script language="javascript" type="text/javascript">
+             $("#popup").on( "pagecreate", function( event ) { 
+                 $("#valueForFirst").text($("#firstName").val());
+                 $("#valueForLast").text($("#lastName").val());
+                 $("#valueForFun").text($("#fun").val());
+                 $("#valueForAge").text($("#age").val());
+                });
+        </script>
+    </body>
+</html>

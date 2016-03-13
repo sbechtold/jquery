@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+    <html>
+     <head>
+        <title>Javascript Variables</title>
+    </head>
+    <body>
+        
+        <div id="result"></div>
+        
+        <script language="javascript" type="text/javascript">    
+
+            var str = "hello world";
+            console.log("Value of str: " + str);
+            
+            var number = 2;
+            console.log("Value of number: " + number);
+            
+            var bool = false;
+            console.log("Value of bool: " + bool);
+            
+            // Multi-variable declaration
+            var some, other, vars;
+            console.log("Value of some: " + some);
+            console.log("Value of other: " + other);
+            console.log("Value of vars: " + vars);
+            
+            // Typed variables
+            var strType = new String("Hello typed world");
+            console.log("Value of strType: " + strType);
+            
+            var numberType = new Number(2);
+            console.log("Value of numberType: " + numberType);
+            
+            var invalidNumberType = new Number("ABC");
+            console.log("Value of invalidNumberType: " + invalidNumberType);
+            
+            // Arrays
+            var array = [];
+            var arrayByType = Array();
+            
+            array.push("abc");
+            array.push(1);
+            array.push(true);
+            
+            arrayByType.push("abc");
+            arrayByType.push(1);
+            arrayByType.push(true);
+            
+            console.log("Value of array[0]: " + array[0] + " - " + arrayByType[0]);
+            console.log("Value of array[1]: " + array[1] + " - " + arrayByType[1]);
+            console.log("Value of array[2]: " + array[2] + " - " + arrayByType[2]);
+            
+            console.log("length of arrays: " + array.length + " - " + arrayByType.length);
+            
+            array.pop();
+            arrayByType.pop();
+            
+            console.log("length of arrays: " + array.length + " - " + arrayByType.length);
+            
+            array = [1, 2, 3];
+            array.splice(1, 1);
+            
+            console.log("length of array: " + array.length);
+            console.log("Value of array[0]: " + array[0]);
+            console.log("Value of array[1]: " + array[1]);
+        </script>
+    </body>
+</html>

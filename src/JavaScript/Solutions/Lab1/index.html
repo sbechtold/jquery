@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+    <html>
+     <head>
+        <title>Javascript Variables</title>
+    </head>
+    <body>
+        
+        <div id="result"></div>
+        
+        <script language="javascript" type="text/javascript">    
+
+            /*
+            Define a global variable as an array; It should be called myArrayOfStrings
+            
+            Define 3 functions to manage your array
+                - Add elements to the array (addString)
+                - Remove elements from the array (removeString)
+                - Reset the array (clearArray)
+                
+            NOTE: The array should only contain strings; it should return true or false as to whether
+                or not the element was added/remove to the array
+            */
+            
+            
+            var myArrayOfStrings = [];
+            
+            function addString(value) {
+                if (!(value instanceof String)) {
+                    return false;
+                }
+                    
+                myArrayOfStrings.push(value);
+                return true;
+            }
+            
+            function removeString(value) {
+                
+                var location = myArrayOfStrings.indexOf(value);
+                if (location == -1) {
+                    return false;
+                }
+                myArrayOfStrings.splice(location, 1);
+                return true;
+            }
+            
+            function clearArray() {
+                myArrayOfStrings = [];
+                return true;
+            }
+            
+            console.log("Add Invalid String", addString("1234"));
+            console.log("Array Length", myArrayOfStrings.length);
+            
+            console.log("Add Valid String", addString(new String("abcs")));
+            console.log("Array Length", myArrayOfStrings.length);
+            
+            console.log("Clear Array", clearArray());
+            console.log("Array Length", myArrayOfStrings.length);
+            
+        </script>
+    </body>
+</html>

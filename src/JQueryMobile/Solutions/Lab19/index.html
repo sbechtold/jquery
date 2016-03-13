@@ -1,0 +1,66 @@
+<!-- 
+    Setup a list view to display the names of all of the states
+    Will want to download the data at: http://localhost:7081/States
+    
+    REMEMBER: You want to do this when the page is created (NOT when the document is ready)
+ -->
+<!DOCTYPE html>
+    <html>
+     <head>
+         <title>JQuery UI</title>
+        <link href="/common/js/jquery-mobile/jquery.mobile-1.4.5.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.external-png-1.4.5.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.icons-1.4.5.min.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.inline-png-1.4.5.min.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.inline-svg-1.4.5.min.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.structure-1.4.5.min.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.theme-1.4.5.min.css" type="text/css" rel="stylesheet" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        
+        
+        <!-- Start of first page: #one -->
+<div data-role="page" id="home">
+
+	<div data-role="header">
+		<h1>States List</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<ul id="container" data-role="listview">
+		</ul>
+	</div><!-- /content -->
+</div><!-- /page one -->
+        <script src="/common/js/jquery/jquery.js"></script>
+        <script src="/common/js/jquery-mobile/jquery.mobile-1.4.5.js"></script>
+        
+        <script language="javascript" type="text/javascript">
+        
+             function getStates() {
+                $.getJSON("http://localhost:7081/States", function(states) {
+                    bind(states);
+                    $("#container").show();
+                });
+            }
+        
+            function bind(data) {
+                $(data).each(function(i, one) { 
+                    if (!$.isEmptyObject(one)) {
+                        var state = $("<li />")
+                                .text(one.name);
+                        $("#container").append(state);        
+                    }
+                    $("#container").listview("refresh");
+                });
+            }
+            
+            $("#home").on( "pagecreate", function( event ) { 
+                $("#container").hide();
+                getStates();
+                } );    
+           
+        
+        </script>
+    </body>
+</html>

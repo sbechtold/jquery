@@ -1,0 +1,24 @@
+<!-- 
+    Create a simple Angular Page that makes reference to the subTitle Variable
+        Should have an input on the page available to change it
+        Should have a place on the page which outputs the result
+--> 
+
+<!DOCTYPE html>
+    <html ng-app="myFirstApp">
+     <head>
+        <title>First Example</title>
+    </head>
+    <body ng-controller="myController">
+        
+        <h1>Controller with State</h1>
+        <h2>{{subTitle}}</h2>
+        
+        <p>
+            Change the subtitle: <input type="text" ng-model="subTitle" />
+        </p>
+        
+        <script src="/common/js/angular/angular.js"></script>
+        <script src="controllers.js"></script>
+    </body>
+</html>

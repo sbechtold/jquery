@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+    <html>
+     <head>
+         <title>JQuery UI</title>
+        <link href="/common/js/jquery-ui/jquery-ui.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-ui/jquery-ui.theme.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-ui/jquery-ui.structure.css" type="text/css" rel="stylesheet" />
+        
+        <style>
+            .droppable {
+                padding:10pt;
+                border:1px solid grey;
+                min-height: 400px;
+                min-width:150px;
+                margin-right:10pt;
+            }    
+            .ui-widget-content  {
+                padding:5pt;
+            }
+            .a { float:left;}
+            .b { float:right;}
+         </style>
+    </head>
+    <body>
+        
+        <div id="loading" style="padding:10pt;text-align:center">
+            <h2>Loading</h2>
+        </div>
+        
+        
+        <div id="container">            
+            <div id="target" class="droppable b">
+                <h2>Selected</h2>
+            </div>
+            
+            <div id="available" class="droppable a">
+                <h2>Available</h2>
+            </div>
+        </div>
+        <br clear="all" />
+        
+         
+        
+        <script src="/common/js/jquery/jquery.js"></script>
+        <script src="/common/js/jquery-ui/jquery-ui.js"></script>
+        
+        <script language="javascript" type="text/javascript">
+        
+            /*
+            
+                Setup 2 containers. One that has all of the States that are available and another that 
+                allows you to select which states you are interested in.
+                
+                Setup your bind to properly list the data as nested divs showing the state names
+                Each div should be able to be dragged from the available container to the selected container
+                
+                NOTE: if the user doesn't drag into a container it should revert the drag
+                and place it back in the original container.
+                
+                Data should be retreived from http://localhost:7081/States using a GET (will return a JSON array)
+            */
+        
+            function getStates() {
+                $.getJSON("http://localhost:7081/States", function(states) {
+                    bind(states);
+                    
+                    $("#loading").hide();
+                    $("#container").show();
+                });
+            }
+        
+            function bind(data) {
+                $(data).each(function(i, one) { 
+                    if (!$.isEmptyObject(one)) {
+                        var state = $("<div />")
+                                .addClass("ui-widget-content")
+                                .text(one.name)
+                                .draggable({ revert: "invalid" });
+                        $("#available").append(state);        
+                    }
+                });
+                $(".droppable").droppable().find("div:odd").css("background", "grey");
+            }
+            
+            $(document).ready(function() {
+                $("#loading").show();
+                $("#container").hide();
+                
+                getStates();
+            });
+            
+        
+        </script>
+    </body>
+</html>

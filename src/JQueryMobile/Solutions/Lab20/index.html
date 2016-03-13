@@ -1,0 +1,157 @@
+<!-- 
+    Let's add buttons to our footers to better navigate around the app
+    Add the 3 navigation areas to our footer
+     -->
+<!DOCTYPE html>
+    <html>
+     <head>
+         <title>JQuery UI</title>
+        <link href="/common/js/jquery-mobile/jquery.mobile-1.4.5.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.external-png-1.4.5.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.icons-1.4.5.min.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.inline-png-1.4.5.min.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.inline-svg-1.4.5.min.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.structure-1.4.5.min.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.theme-1.4.5.min.css" type="text/css" rel="stylesheet" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        
+        
+        <!-- Start of first page: #one -->
+<div data-role="page" id="home">
+
+	<div data-role="header">
+		<h1>Home</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<h2>Home</h2>
+
+		<p><a href="#Mercury" class="ui-btn ui-shadow ui-corner-all">Mercury</a></p>
+        <p><a href="#Gemini" class="ui-btn ui-shadow ui-corner-all">Gemini</a></p>
+        <p><a href="#Apollo" class="ui-btn ui-shadow ui-corner-all">Apollo</a></p>
+        
+	</div><!-- /content -->
+
+	<div data-role="footer">
+    <div data-role="navbar">
+        <ul>
+            <li> <a href="#home" class="ui-btn-active"> Home </a></li>
+            <li> <a href="#Mercury"> Mercury </a></li>
+            <li> <a href="#Gemini"> Gemini </a></li>
+            <li> <a href="#Apollo"> Apollo </a></li>
+         </ul>
+    </div>
+    </div>
+</div><!-- /page one -->
+
+<!-- Start of second page: #Mercury -->
+<div data-role="page" id="Mercury" data-theme="a">
+
+	<div data-role="header">
+		<h1>Mercury</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<p>
+            Project Mercury was the first human spaceflight program of the United States, running from 1958 through 1963. An early highlight of the Space Race, its goal was to put a man into Earth orbit and return him safely, ideally before the Soviet Union. Taken over from the U.S. Air Force by the newly created civilian space agency NASA, it conducted twenty unmanned developmental flights (some using animals), and six successful flights by astronauts.
+            <br />
+            The Space Race began with the 1957 launch of the Soviet satellite Sputnik 1. This came as a shock to the American public, and led to the creation of NASA to expedite existing U.S. space exploration efforts, and place most of them under civilian control. After the successful launch of the Explorer 1 satellite in 1958, manned spaceflight became the next goal. The Soviet Union put the first human, cosmonaut Yuri Gagarin, into a single orbit aboard Vostok 1 on April 12, 1961. Shortly after this, on May 5, the U.S. launched its first astronaut, Alan Shepard, on a suborbital flight. Soviet Gherman Titov followed with a day-long orbital flight in August, 1961. The U.S. reached its orbital goal on February 20, 1962, when John Glenn made three orbits around the Earth. When Mercury ended in May 1963, both nations had sent six people into space, but the Soviets led the U.S. in total time spent in space.
+            <br />
+            The program took its name from the wing-footed, fleet god of travel in Roman mythology, cost $277 million in 1965 US dollars, and involved the work of 2 million people.[1] The astronauts were collectively known as the "Mercury Seven", and each spacecraft was given a name ending with a "7" by its pilot.
+            <br />
+            The Mercury space capsule was produced by McDonnell Aircraft, and carried supplies of water, food and oxygen for about one day in a pressurized cabin. Mercury flights were launched from Cape Canaveral Air Force Station in Florida, on launch vehicles modified from the Redstone and Atlas D missiles. The capsule was fitted with a launch escape rocket to carry it safely away from the launch vehicle in case of a failure. The flight was designed to be controlled from the ground via the Manned Space Flight Network, a system of tracking and communications stations; back-up controls were outfitted on board. Small retrorockets were used to bring the spacecraft out of its orbit, after which an ablative heat shield protected it from the heat of atmospheric reentry. Finally, a parachute slowed the craft for a water landing. Both astronaut and capsule were recovered by helicopters deployed from a U.S. Navy ship.
+
+            After a slow start riddled with humiliating mistakes, the Mercury project gained popularity, its missions followed by millions on radio and TV around the world. Its success laid the groundwork for Project Gemini, which carried two astronauts in each capsule and perfected space docking maneuvers essential for manned lunar landings in the subsequent Apollo program announced a few weeks after the first manned Mercury flight.
+        </p>
+
+	</div><!-- /content -->
+        <div data-role="footer">
+    <div data-role="navbar">
+        <ul>
+            <li> <a href="#home"> Home </a></li>
+            <li> <a href="#Mercury" class="ui-btn-active"> Mercury </a></li>
+            <li> <a href="#Gemini"> Gemini </a></li>
+            <li> <a href="#Apollo"> Apollo </a></li>
+         </ul>
+    </div>
+    </div>
+</div><!-- /page Mercury -->
+
+<!-- Start of second page: #Mercury -->
+<div data-role="page" id="Gemini" data-theme="a">
+
+	<div data-role="header">
+		<h1>Gemini</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<p>
+            Project Gemini was NASA's second human spaceflight program. It was a United States space program started in 1961 and concluded in 1966. Project Gemini was conducted between projects Mercury and Apollo. The Gemini spacecraft carried a two-astronaut crew. Ten crews flew low Earth orbit (LEO) missions between 1965 and 1966. It put the United States in the lead during the Cold War Space Race against the Soviet Union.
+            <br />
+            Its objective was to develop space travel techniques to support Apollo's mission to land astronauts on the Moon. Gemini achieved missions long enough for a trip to the Moon and back, perfected working outside the spacecraft with extra-vehicular activity (EVA), and pioneered the orbital maneuvers necessary to achieve space rendezvous and docking. With these new techniques proven by Gemini, Apollo could pursue its prime mission without doing these fundamental exploratory operations.
+            <br />
+            All Gemini flights were launched from Launch Complex 19 (LC-19) at Cape Kennedy Air Force Station in Florida. Its launch vehicle was the Gemini–Titan II, a modified Intercontinental Ballistic Missile (ICBM).[Note 1] Gemini was the first program to use the newly built Mission Control Center at the Houston Manned Spacecraft Center for flight control.[Note 2]
+            <br />
+            The astronaut corps that supported Project Gemini included the "Mercury Seven", "The New Nine", and the 1963 astronaut class. During the program, three astronauts died in air crashes during training, including the prime crew for Gemini 9. This mission was performed by the backup crew, the only time that had happened in NASA's history to date.
+            <br />
+            Gemini was robust enough that the United States Air Force planned to use it for the Manned Orbital Laboratory (MOL) program, which was later canceled. Gemini's chief designer, Jim Chamberlin, also made detailed plans for cislunar and lunar landing missions in late 1961. He believed Gemini could perform lunar operations before Project Apollo, and cost less. NASA's administration did not approve those plans. In 1969, McDonnell-Douglas proposed a "Big Gemini" that could have been used to shuttle up to 12 astronauts to the planned space stations in the Apollo Applications Project (AAP). The only AAP project funded was Skylab – which used existing spacecraft and hardware – thereby eliminating the need for Big Gemini.
+        </p>
+	</div><!-- /content -->
+    <div data-role="footer">
+    <div data-role="navbar">
+        <ul>
+            <li> <a href="#home"> Home </a></li>
+            <li> <a href="#Mercury"> Mercury </a></li>
+            <li> <a href="#Gemini" class="ui-btn-active"> Gemini </a></li>
+            <li> <a href="#Apollo"> Apollo </a></li>
+         </ul>
+    </div>
+    </div>
+</div><!-- /page Gemini -->
+
+<!-- Start of second page: #Apollo -->
+<div data-role="page" id="Apollo" data-theme="a">
+
+	<div data-role="header">
+		<h1>Apollo</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<p>
+            The Apollo program, also known as Project Apollo, was the third United States human spaceflight program carried out by the National Aeronautics and Space Administration (NASA), which accomplished landing the first humans on the Moon from 1969 to 1972. First conceived during Dwight D. Eisenhower's administration as a three-man spacecraft to follow the one-man Project Mercury which put the first Americans in space, Apollo was later dedicated to President John F. Kennedy's national goal of "landing a man on the Moon and returning him safely to the Earth" by the end of the 1960s, which he proposed in a May 25, 1961, address to Congress. Project Mercury was followed by the two-man Project Gemini (1962–66). The first manned flight of Apollo was in 1968.
+            <br />
+            Kennedy's goal was accomplished on the Apollo 11 mission when astronauts Neil Armstrong and Buzz Aldrin landed their Lunar Module (LM) on July 20, 1969, and walked on the lunar surface, while Michael Collins remained in lunar orbit in the Command/Service Module (CSM), and all three landed safely on Earth on July 24. Five subsequent Apollo missions also landed astronauts on the Moon, the last in December 1972. In these six spaceflights, twelve men walked on the Moon.
+            <br />
+            Apollo ran from 1961 to 1972, and was supported by the two-man Gemini program which ran concurrently with it from 1962 to 1966. Gemini missions developed some of the space travel techniques that were necessary for the success of the Apollo missions. Apollo used Saturn family rockets as launch vehicles. Apollo/Saturn vehicles were also used for an Apollo Applications Program, which consisted of Skylab, a space station that supported three manned missions in 1973–74, and the Apollo–Soyuz Test Project, a joint Earth orbit mission with the Soviet Union in 1975.
+            <br />
+            The Apollo program succeeded in achieving its goal of manned lunar landing, despite the major setback of a 1967 Apollo 1 cabin fire that killed the entire crew during a pre-launch test. After the first landing, sufficient flight hardware remained for nine follow-on landings with a plan for extended lunar geological and astrophysical exploration. Budget cuts forced the cancellation of three of these. Five of the remaining six missions achieved successful landings, but the Apollo 13 landing was prevented by an oxygen tank explosion in transit to the Moon, which disabled the command spacecraft's propulsion and life support. The crew returned to Earth safely by using the Lunar Module as a "lifeboat" for these functions.
+            <br />
+            Apollo set several major human spaceflight milestones. It stands alone in sending manned missions beyond low Earth orbit. Apollo 8 was the first manned spacecraft to orbit another celestial body, while the final Apollo 17 mission marked the sixth Moon landing and the ninth manned mission beyond low Earth orbit. The program returned 842 pounds (382 kg) of lunar rocks and soil to Earth, greatly contributing to the understanding of the Moon's composition and geological history. The program laid the foundation for NASA's current human spaceflight capability, and funded construction of its Johnson Space Center and Kennedy Space Center. Apollo also spurred advances in many areas of technology incidental to rocketry and manned spaceflight, including avionics, telecommunications, and computers.
+        </p>
+
+	</div><!-- /content -->
+    <div data-role="footer">
+    <div data-role="navbar">
+        <ul>
+            <li> <a href="#home"> Home </a> </li>
+            <li> <a href="#Mercury"> Mercury </a></li>
+            <li> <a href="#Gemini"> Gemini </a></li>
+            <li> <a href="#Apollo" class="ui-btn-active">Apollo </a></li>
+         </ul>
+    </div>
+    </div>
+</div><!-- /page Apollo -->
+
+         
+        
+        <script src="/common/js/jquery/jquery.js"></script>
+        <script src="/common/js/jquery-mobile/jquery.mobile-1.4.5.js"></script>
+        
+        <script language="javascript" type="text/javascript">
+        
+        
+        </script>
+    </body>
+</html>

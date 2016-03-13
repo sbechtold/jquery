@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+    <html>
+     <head>
+        <title>Javascript Variables</title>
+    </head>
+    <body>
+        
+        <div id="result">
+            <table>
+                <tr>
+                    <td>Column 1</td>
+                    <td>Column 2</td>
+                    <td>Column 3</td>
+                 </tr>
+            </table>
+        </div>
+        
+        <input type="button" id="doReset" value="Reset Content" onclick="changeContent()" />
+        
+        <script language="javascript" type="text/javascript">
+
+            function runThroughNodes(nodeCollection) {
+                for (var i = 0; i < nodeCollection.length; i++) {
+                    console.log("Node Found", nodeCollection[i].nodeType, nodeCollection[i].nodeName, nodeCollection[i].nodeValue);
+                    if (nodeCollection[i].childNodes && nodeCollection[i].childNodes.length > 0) {
+                        runThroughNodes(nodeCollection[i].childNodes);
+                    }
+                }
+            }
+            
+            runThroughNodes(document.childNodes); // Will traverse the DOM spitting out all of the elements in the dom
+            
+            function changeContent() {
+                // Hide the reset button
+                var resetButton = document.getElementById("doReset");
+                resetButton.style.visibility = "hidden";
+                
+                // Get the container
+                var container = document.getElementById("result");
+                console.log(container.firstChild);
+                
+                // Remove the table
+                var table, index = 0;
+                while (!table && index < container.childNodes.length) {
+                    if (container.childNodes[index].nodeName == "TABLE") {
+                        table = container.childNodes[index];
+                    }
+                    console.log(container.childNodes[index].nodeName);
+                    index++;
+                }
+                container.removeChild(table);
+                
+                // Create the new content
+                var newContainer = document.createElement("DIV");
+                newContainer.innerHTML = "<h2>What would you like me to say?</h2>";
+                container.appendChild(newContainer);
+                
+                var button = document.createElement("INPUT");
+                var typeAttribute = document.createAttribute("type");
+                typeAttribute.value = "BUTTON";
+                var valueAttribute = document.createAttribute("value");
+                valueAttribute.value = "Click Me";
+                
+                // Wire up a click handler for the new button
+                button.onclick = function() {
+                    alert("Hello World");
+                }
+                
+                button.setAttributeNode(typeAttribute);
+                button.setAttributeNode(valueAttribute);
+                container.appendChild(button);
+            }
+        </script>
+    </body>
+</html>

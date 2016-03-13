@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+    <html>
+     <head>
+        <title>Javascript Events</title>
+    </head>
+    <body onload="init()">
+        
+        <table id="result"> 
+        </table>
+        
+        <input type="button"  value="Birthday" onclick="doBirthday()" />
+        
+        <script language="javascript" type="text/javascript">
+        
+        /* 
+            Create a person Object that has properties firstName, lastName, age
+        
+            Add a prototype function for birthday where the age is incrememnted by 1
+            
+            You should also wire a function to display the person array as a table
+           */
+          
+        
+            function Person(firstName, lastName, age) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.age = age;
+            }
+            
+            var people = [];
+            
+            function renderAll() {
+                clearAll(document.getElementById("result"));
+                
+                for (var i = 0; i < people.length; i++ ) {
+                    renderPerson(people[i]);
+                }
+            }
+            
+            function clearAll(table) {
+                while (table.firstChild) {
+                    table.removeChild(table.firstChild);
+                }
+            }
+            
+            function renderPerson(person) {
+                var container = document.createElement("TR");
+                
+                var firstName = document.createElement("TD");
+                firstName.innerHTML = person.firstName;
+                
+                var lastName = document.createElement("TD");
+                lastName.innerHTML = person.lastName;
+                
+                var age = document.createElement("TD");
+                age.innerHTML = person.age;
+                
+                container.appendChild(firstName);
+                container.appendChild(lastName);
+                container.appendChild(age);
+                
+                document.getElementById("result").appendChild(container);
+            }
+            
+            function doBirthday() {
+                people[1].birthday();
+            }
+            
+            Person.prototype.birthday = function() {
+                this.age += 1;
+                renderAll();
+            }
+            
+            function init() {
+                people.push(new Person("John", "Smith", 32));
+                people.push(new Person("Bruce", "Wayne", 33));
+                people.push(new Person("Clark", "Kent", 28));
+                
+                renderAll();
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+    <html>
+     <head>
+        <title>Javascript Variables</title>
+    </head>
+    <body>
+        
+        <input type="button" id="doTimeStamp" value="Mark Timestamp" onclick="addTimestamp()" />
+        
+        <ul id="timemarkers">
+            
+        </ul>
+        
+        <script language="javascript" type="text/javascript">
+        
+            /*
+            Wire up the add timestamp function so that when invoked it adds a new element to the
+            UL with Id timemarkers
+            
+            It should create a new LI with a button and the current timestamp. When the button is clicked
+            it should remove the LI that it is contained in from the UL. 
+            
+            Remember to wire up the button click in your html for invoking the addTimestamp button
+            */
+        
+            function addTimestamp(){
+                var container = document.getElementById("timemarkers");
+                var listItem = document.createElement("LI");
+                
+                var button = document.createElement("INPUT");
+                var valueAttribute = document.createAttribute("value");
+                valueAttribute.value = "X";
+                button.setAttributeNode(valueAttribute);
+                var typeAttribute = document.createAttribute("type");
+                typeAttribute.value = "button";
+                button.setAttributeNode(typeAttribute);
+                
+                button.onclick = function() {
+                    removeElement(this);
+                };
+                
+                var content = document.createElement("SPAN");
+                content.innerHTML = Date();
+                
+                
+                listItem.appendChild(button);
+                listItem.appendChild(content);
+                
+                container.appendChild(listItem);
+            }
+            
+            function removeElement(el) {
+                var container = document.getElementById("timemarkers");
+                container.removeChild(el.parentNode);
+            }
+        </script>
+    </body>
+</html>

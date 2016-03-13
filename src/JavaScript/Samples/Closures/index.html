@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+    <html>
+     <head>
+        <title>Javascript Closures</title>
+    </head>
+    <body>
+        
+        <input type="text" id="incrementValue" /><input type="button" value="Increment" onclick="increment()" />
+        <ul id="result"></ul>
+        
+        <script language="javascript" type="text/javascript">   
+         
+            function incrementor(startValue, config) {
+                var useStartValue = parseFloat(startValue);
+                var useConfig =  {
+                    shouldMultiply : (config && config.shouldMultiply) ? config.shouldMultiply : false,
+                    absoluteValue : (config && config.absoluteValue) ? config.absoluteValue : false
+                }
+                
+                if (useConfig.absoluteValue && useStartValue < 0) {
+                    useStartValue *= -1;
+                }
+                
+                return function(value) {
+                    var useValue = value;
+                    if (useConfig.absoluteValue && useValue < 0) {
+                        useValue *= -1;
+                    }
+                    
+                    if (useConfig.shouldMultiply) {
+                        useStartValue *= useValue;
+                    }
+                    else { 
+                        useStartValue += useValue;
+                    }
+                    return useStartValue;
+                }
+            }
+            
+            function increment() {
+                var input = document.getElementById("incrementValue");
+                var number = parseFloat(input.value);
+                if (!number) {
+                    return;
+                }
+                
+                var result = ticker(number);
+                input.value = "";
+                
+                var listItem = document.createElement("LI");
+                listItem.innerHTML = result;
+                
+                document.getElementById("result").appendChild(listItem);
+            }
+            
+            var ticker = incrementor(1);
+        </script>
+    </body>
+</html>

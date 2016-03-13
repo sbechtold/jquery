@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+    <html>
+     <head>
+        <title>Javascript Events</title>
+    </head>
+    <body>
+        
+        <div id="loading" style="padding:10pt;text-align:center">
+            <h2>Loading</h2>
+        </div>
+        
+        <table id="container">
+           <thead>
+                <tr>
+                    <th>State Name</th>
+                    <th>State Abbreviation</th>
+                    <th>Capital</th>
+           </thead>
+            <tbody />
+        </table>
+        
+        
+         
+        
+        <script src="/common/js/jquery/jquery.js"></script>
+        <script language="javascript" type="text/javascript">
+        
+            /*
+                Should look to fetch all of the data from http://localhost:7081/States using a GET
+                
+                Should bind the results to the container table showing the State Name, Abbreviation, and Capital
+                
+                REMEMBER: Server's sometimes are slow; add some messaging for loading
+            */
+        
+            function getStates() {
+                $.getJSON("http://localhost:7081/States", function(states) {
+                    bind(states);
+                    
+                    $("#loading").hide();
+                    $("#container").show();
+                });
+            }
+        
+            function bind(data) {
+                $("#container tbody").empty();
+                $(data).each(function(i, one) { 
+                    if (!$.isEmptyObject(one)) {
+                        var row = $("<tr />");
+                        row.append($("<td />").text(one.name));
+                        row.append($("<td />").text(one.abbreviation));
+                        row.append($("<td />").text(one.capital));      
+                        $("#container tbody").append(row);
+                    }
+                });
+                
+                $("#container tbody tr:odd").find("td").css("background", "grey");
+                $("#container").attr("cellspacing", 0);
+                $("#container").attr("cellpadding", 5);
+            }
+            
+            $(document).ready(function() {
+                $("#loading").show();
+                $("#container").hide();
+                
+                getStates();
+            });
+            
+        
+        </script>
+    </body>
+</html>

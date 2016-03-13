@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+    <html>
+     <head>
+        <title>Javascript Events</title>
+    </head>
+    <body onload="init()">
+        
+        <table id="result">
+            
+            
+        </table>
+        
+        <input type="button"  value="drive" onclick="doDrive()" />
+        
+        <script language="javascript" type="text/javascript">
+        
+            function Car(make, model, year, mileage) {
+                this.make = make;
+                this.model = model;
+                this.year = year;
+                
+                this.mileage = mileage;
+            }
+            
+            var cars = [];
+            
+            function renderAll() {
+                clearAll(document.getElementById("result"));
+                
+                for (var i = 0; i < cars.length; i++ ) {
+                    renderCar(cars[i]);
+                }
+            }
+            
+            function clearAll(table) {
+                while (table.firstChild) {
+                    table.removeChild(table.firstChild);
+                }
+            }
+            
+            function renderCar(car) {
+                var container = document.createElement("TR");
+                
+                var make = document.createElement("TD");
+                make.innerHTML = car.make;
+                
+                var model = document.createElement("TD");
+                model.innerHTML = car.model;
+                
+                var year = document.createElement("TD");
+                year.innerHTML = car.year;
+                
+                var mileage = document.createElement("TD");
+                mileage.innerHTML = car.mileage;
+                
+                container.appendChild(make);
+                container.appendChild(model);
+                container.appendChild(year);
+                container.appendChild(mileage);
+                
+                document.getElementById("result").appendChild(container);
+            }
+            
+            
+            function doDrive() {
+                cars[2].drive(200);
+            }
+            
+            Car.prototype.drive = function(distance) {
+                this.mileage += distance;
+                renderAll();
+            }
+            
+            function init() {
+                cars.push(new Car("Ford", "Focus", 2013, 30032));
+                cars.push(new Car("Ford", "Fusion", 2016, 1042));
+                cars.push(new Car("Ford", "Escape", 2014, 11042));
+                
+                renderAll();
+            }
+        </script>
+    </body>
+</html>

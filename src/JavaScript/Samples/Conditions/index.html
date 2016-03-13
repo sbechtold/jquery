@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+    <html>
+     <head>
+        <title>Javascript Functions</title>
+    </head>
+    <body>
+        
+        <script language="javascript" type="text/javascript">
+        
+            
+            if (1 == "1") {
+                console.log("1 == 1 evaluated to true");
+            }
+            
+            if (1 !== "1") {
+                console.log("1 was not equal to 1 as type and value");
+            }
+            
+            
+            var value = 4;
+            if (value < 2) {
+                console.log("value was less than 2");
+            } 
+            else if (value < 3) {
+                console.log("value was less than 3");
+            } 
+            else if (value < 4) {
+                console.log("value was less than 4");
+            } 
+            else {
+                if (value > 6) {
+                    console.log("value was greater than 6");
+                }
+                else if (value > 5) {
+                    console.log("value was greater than 5");
+                }
+                else {
+                    console.log("the value is somewhere between 4 and 5");
+                }
+            }
+            
+            var myValue = 4;
+            switch (myValue) {
+                case 1:
+                case 2:
+                    console.log("value was either 1 or 2");
+                    break;
+                case 3:
+                    console.log("value was 3");
+                    break;
+               case 4: 
+                    console.log("The value was equal to 4");
+                    break;
+               default: 
+                    console.log("The given value was not available in the statement");
+                    break;
+            }
+            
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+    <html>
+     <head>
+        <title>Javascript Events</title>
+    </head>
+    <body>
+        
+        <table id="container">
+            
+        </table>
+         
+        
+        <script src="/common/js/jquery/jquery.js"></script>
+        <script src="/common/data/people.js"></script>
+        <script language="javascript" type="text/javascript">
+            /*
+            
+                In the global file people.js contains a global array called "people"
+                
+                You should look to render the results of the person array into the table with
+                id container
+                
+                You should also look to change the cellpadding to 5 and the cellspacing to 0
+                as well as set the alternating background of all rows
+            */
+            
+            function bind(data) {
+                
+                $(data).each(function(i, one) { 
+                    if (!$.isEmptyObject(one)) {
+                        var row = $("<tr />");
+                        row.append($("<td />").text(i));
+                        row.append($("<td />").text(one.firstName));
+                        row.append($("<td />").text(one.lastName));
+                        row.append($("<td />").text(one.age));
+                        
+                        $("#container").append(row);
+                    }
+                });
+                
+                $("#container tr:odd").find("td").css("background", "grey");
+                $("#container").attr("cellspacing", 0);
+                $("#container").attr("cellpadding", 5);
+            }
+            
+            $(document).ready(function() {
+                if ($.isArray(people)) {
+                    bind(people);
+                }
+            });
+            
+        
+        </script>
+    </body>
+</html>

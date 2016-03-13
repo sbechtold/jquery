@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+    <html>
+     <head>
+         <title>JQuery UI</title>
+        <link href="/common/js/jquery-ui/jquery-ui.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-ui/jquery-ui.theme.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-ui/jquery-ui.structure.css" type="text/css" rel="stylesheet" />
+    </head>
+    <body>
+        
+       <div id="loading" style="padding:10pt;text-align:center">
+            <h2>Loading</h2>
+        </div>
+        
+        
+        <div id="container">            
+            Type in the name of the state you are looking for: <input type="text" id="autocomplete" />
+        </div>
+        
+        
+        <script src="/common/js/jquery/jquery.js"></script>
+        <script src="/common/js/jquery-ui/jquery-ui.js"></script>
+        
+        <script language="javascript" type="text/javascript">
+            /*
+            
+            Fetch all of the states from the server using http://localhost:7081/States
+            
+            Create an auto complete control that displays the state name as it is being 
+            typed for the user to select
+            
+            */
+            
+        
+            function getStates() {
+                $.getJSON("http://localhost:7081/States", function(states) {
+                    
+                    
+                                            
+                    $("#loading").hide();
+                    $("#container").show();
+                });
+            }
+        
+            
+            $(document).ready(function() {
+                $("#loading").show();
+                $("#container").hide();
+                
+                getStates();
+            });
+            
+        
+        </script>
+    </body>
+</html>
