@@ -27,7 +27,7 @@ app.use( bodyParser.urlencoded( {extended : true} ) );
 
 app.set( 'json spaces', 4 );
 
-var port = process.env.PORT || 7081; 		// set our port
+var port = process.env.PORT || 6081; 		// set our port
 
 var router = express.Router();
 
