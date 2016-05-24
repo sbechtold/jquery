@@ -1,0 +1,77 @@
+<!--
+    Let's change up our list view to show a table of information.
+
+    Feel free to change between toggle and reflow to see the differences.
+ -->
+<!DOCTYPE html>
+    <html>
+     <head>
+         <title>JQuery UI</title>
+        <link href="/common/js/jquery-mobile/jquery.mobile-1.4.5.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.external-png-1.4.5.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.icons-1.4.5.min.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.inline-png-1.4.5.min.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.inline-svg-1.4.5.min.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.structure-1.4.5.min.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.theme-1.4.5.min.css" type="text/css" rel="stylesheet" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+
+
+        <!-- Start of first page: #one -->
+<div data-role="page" id="home">
+
+	<div data-role="header">
+		<h1>Product List</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<table id="container" data-role="table" data-mode="columntoggle" class="ui-responsive table-stroke">
+            <thead>
+                <tr>
+                    <th data-priority="1">ID</th>
+                    <th data-priority="1">Name</th>
+                    <th data-priority="3">Category ID</th>
+                    <th data-priority="4">Supplier ID</th>
+                    </tr>
+            </thead>
+            <tbody />
+            </table>
+	</div><!-- /content -->
+</div><!-- /page one -->
+        <script src="/common/js/jquery/jquery.js"></script>
+        <script src="/common/js/jquery-mobile/jquery.mobile-1.4.5.js"></script>
+
+        <script language="javascript" type="text/javascript">
+
+             function getProducts() {
+                $.getJSON("http://localhost:7081/Products", function(products) {
+                    bind(products);
+                    $("#container").show();
+                });
+            }
+
+            function bind(data) {
+                $(data).each(function(i, one) {
+                    if (!$.isEmptyObject(one)) {
+                        var product = $("<tr />")
+                                .append($("<td />").text(one.productID))
+                                .append($("<td />").text(one.productName))
+                                .append($("<td />").text(one.categoryID))
+                                .append($("<td />").text(one.supplierID))
+                        $("#container tbody").append(product);
+                    }
+                    $("#container").table("refresh");
+                });
+            }
+
+            $("#home").on( "pagecreate", function( event ) {
+                $("#container").hide();
+                getProducts();
+                } );
+
+
+        </script>
+    </body>
+</html>

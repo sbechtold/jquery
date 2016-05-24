@@ -4,7 +4,7 @@
         <title>Javascript Variables</title>
     </head>
     <body>
-        
+
         <div id="result">
             <table>
                 <tr>
@@ -13,10 +13,20 @@
                     <td>Column 3</td>
                  </tr>
             </table>
+
+            <table>
+                <tr>
+                    <td>Column 1a</td>
+                    <td>Column 2b</td>
+                    <td>Column 3c</td>
+                 </tr>
+            </table>
+
+            <span>Hello World</span>
         </div>
-        
+
         <input type="button" id="doReset" value="Reset Content" onclick="changeContent()" />
-        
+
         <script language="javascript" type="text/javascript">
 
             function runThroughNodes(nodeCollection) {
@@ -27,18 +37,18 @@
                     }
                 }
             }
-            
+
             runThroughNodes(document.childNodes); // Will traverse the DOM spitting out all of the elements in the dom
-            
+
             function changeContent() {
                 // Hide the reset button
                 var resetButton = document.getElementById("doReset");
                 resetButton.style.visibility = "hidden";
-                
+
                 // Get the container
                 var container = document.getElementById("result");
                 console.log(container.firstChild);
-                
+
                 // Remove the table
                 var table, index = 0;
                 while (!table && index < container.childNodes.length) {
@@ -49,26 +59,26 @@
                     index++;
                 }
                 container.removeChild(table);
-                
+
                 // Create the new content
                 var newContainer = document.createElement("DIV");
                 newContainer.innerHTML = "<h2>What would you like me to say?</h2>";
                 container.appendChild(newContainer);
-                
+
                 var button = document.createElement("INPUT");
                 var typeAttribute = document.createAttribute("type");
                 typeAttribute.value = "BUTTON";
                 var valueAttribute = document.createAttribute("value");
                 valueAttribute.value = "Click Me";
-                
+
                 // Wire up a click handler for the new button
                 button.onclick = function() {
                     alert("Hello World");
                 }
-                
+
                 button.setAttributeNode(typeAttribute);
                 button.setAttributeNode(valueAttribute);
-                container.appendChild(button);
+                //container.appendChild(button);
             }
         </script>
     </body>

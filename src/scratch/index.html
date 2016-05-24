@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+    <html>
+     <head>
+        <title>Javascript Events</title>
+    </head>
+    <body>
+
+        <div id="result"></div>
+
+
+        <form id="hello" class="myform">
+          <span>hello</span>
+
+          <input name="textTwo" class="form-text" type="number" value="hello" />
+          <input name="textThree" class="form-text" type="email" value="hello" />
+          <input name="textFour" class="form-text" type value="hello" />
+          <input name="selectMe" class="form-radio" type="radio" value="hello" />
+          <input id="noPickMe" name="noPickMe" class="form-button" type="button" value="hello" />
+
+          <input name="selectMe" class="form-radio" type="radio" value="hello"  checked="false" />
+
+        </form>
+
+        <form id="hello">
+          <span>hello</span>
+
+          <input name="textTwo" class="form-text" type="number" value="hello" />
+          <input name="textThree" class="form-text" type="email" value="hello" />
+          <input name="textFour" class="form-text" type value="hello" />
+          <input name="selectMe" class="form-radio" type="radio" value="hello" />
+          <input id="noPickMe" name="noPickMe" class="form-button" type="button" value="hello" />
+
+          <input name="selectMe" class="form-radio" type="radio" value="hello"  checked="false" />
+
+        </form>
+
+
+        <my-custom-html>
+            <my-other-one></my-other-one>
+        </my-custom-html>
+
+        <script src="/common/js/jquery/jquery.js"></script>
+        <script language="javascript" type="text/javascript">
+
+            $(".myform > input[type='text']:first").replaceWith($("<span>hello</span>"))
+
+            var rawOne = $(".myform").eq(5).get()
+            var one =  document.getElementById("noPickMe")
+
+            alert($(".myform").eq(5).attr("name", "myNewName"));
+
+            var bunchOfAttributes = { name: "NewName", id: "NewID", class = "my-form my-form-input"};
+
+            $(".myform").eq(5).attr(bunchOfAttributes);
+            $(".myform").eq(5).removeAttr("name");
+            $(".myform").eq(5).prop("required", true);
+            $(".myform").eq(5).prop("checked", true);
+
+
+            $(".myform > input[type='text']").val(function (one) {
+
+            });
+
+
+            $(".myform").find("input").each(function (one, i) {
+              console.log(one);
+            });
+
+
+                          // Returns all inputs contained within the form
+                          // 4
+                          $(".myform > input[type]:first").show();
+                          $(".myform > input[type]:first").hide();
+
+                          $(".myform > input.form-text[type]").slideUp(20, function()  {
+                            console.log("done sliding inputs off the page");
+                          });
+
+                          alert($(".myform > input[type]").get(5).val());
+
+                          $(".myform:first-child").css("border", "red");
+
+                          // Returns all inputs contained within the form and an attribute type=text
+                          // 1
+                          $.params($(".myform > input[type='text']"));
+                          $.params($(".myform > input[type!='text']"));
+
+
+
+                          $.params($(".myform > input[name^='text']"));
+        </script>
+    </body>
+</html>

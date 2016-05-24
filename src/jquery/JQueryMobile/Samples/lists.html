@@ -1,7 +1,7 @@
-<!--
+<!-- 
     Setup a list view to display the names of all of the states
     Will want to download the data at: http://localhost:7081/States
-
+    
     REMEMBER: You want to do this when the page is created (NOT when the document is ready)
  -->
 <!DOCTYPE html>
@@ -18,8 +18,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-
-
+        
+        
         <!-- Start of first page: #one -->
 <div data-role="page" id="home">
 
@@ -31,75 +31,36 @@
 		<ul id="container" data-role="listview">
 		</ul>
 	</div><!-- /content -->
-    <!-- /content -->
 </div><!-- /page one -->
-
-
-    <div data-role="page" id="details">
-
-        <div data-role="header">
-            <h1 class="data-stateName"></h1>
-        </div>
-
-        <div role="main" class="ui-content">
-           <ul data-role="listview">
-               <li>
-                   <b>Abbreviation:</b><span class="data-stateAbbreviation" />
-               </li>
-               <li>
-                   <b>Name:</b><span class="data-stateName" />
-               </li>
-               <li>
-                   <b>Capital:</b><span class="data-stateCapital" />
-               </li>
-           </ul>
-
-           <p><a href="#home" data-direction="reverse" class="ui-btn ui-shadow ui-corner-all ui-btn-b">Back to Home</a></p>
-       </div>
-	</div>
-
-
         <script src="/common/js/jquery/jquery.js"></script>
         <script src="/common/js/jquery-mobile/jquery.mobile-1.4.5.js"></script>
-
+        
         <script language="javascript" type="text/javascript">
-
-
-             function setSelectedState(state) {
-                 $(".data-stateAbbreviation").text(state.abbreviation);
-                 $(".data-stateName").text(state.name);
-                 $(".data-stateCapital").text(state.capital);
-             }
-
-             function getStates() {
-                $.getJSON("http://localhost:7081/States", function(states) {
+        
+             function getProducts() {
+                $.getJSON("http://localhost:7081/Products", function(states) {
                     bind(states);
                     $("#container").show();
                 });
             }
-
+        
             function bind(data) {
-                $(data).each(function(i, one) {
+                $(data).each(function(i, one) { 
                     if (!$.isEmptyObject(one)) {
-                        var state = $("<li />").append($("<a />").attr("href", "#details").text(one.name).on("click", function() {
-                             $.getJSON("http://localhost:7081/States/" + one.abbreviation, function(state) {
-                                    setSelectedState(state);
-                                });
-                        }));
-
-                        var stateA = $("<li />").text(one.name);
-                        $("#container").append(state);
+                        var state = $("<li />")
+                                .text(one.productName);
+                        $("#container").append(state);        
                     }
                     $("#container").listview("refresh");
                 });
             }
-
-            $("#home").on( "pagecreate", function( event ) {
+            
+            $("#home").on( "pagecreate", function( event ) { 
                 $("#container").hide();
-                getStates();
-                } );
-
-
+                getProducts();
+                } );    
+           
+        
         </script>
     </body>
 </html>

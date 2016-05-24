@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+    <html>
+     <head>
+        <title>Javascript Events</title>
+
+        <style>
+
+          .alt-background {
+            background-color: #a1a1a1;
+          }
+
+          .focus {
+            background:red;
+          }
+        </style>
+    </head>
+    <body>
+        
+        
+        
+        <div class="container">
+        <span>The</span> 
+        <span>quick</span>
+        <span>brown</span>
+        <span>fox</span>
+        <span>jumps</span>
+        <span>over</span>
+        <span>the</span>
+        <span>lazy</span>
+        <span>dog</span>
+        </div>
+        
+
+        <script src="/common/js/jquery/jquery.js"></script>
+        <script language="javascript" type="text/javascript">
+
+
+          (function($) {
+
+            $.fn.highlight = function() {
+              this.css("background", "yellow");
+              this.css("text-decoration", "underline");
+              return this;
+            };
+
+          })(jQuery);
+
+          $(document).ready(function() {
+            $(".container > span:odd").highlight();
+          });
+
+
+        </script>
+    </body>
+</html>

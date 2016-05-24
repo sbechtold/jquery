@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+    <html>
+     <head>
+        <title>Javascript Events</title>
+
+        <style>
+
+          .alt-background {
+            background-color: #a1a1a1;
+          }
+
+        </style>
+    </head>
+    <body>
+
+        <div id="result" class="results">
+
+
+        </div>
+
+        <script src="/common/js/jquery/jquery.js"></script>
+        <script language="javascript" type="text/javascript">
+
+
+            function Car(make, model, year) {
+                this.make = (make) ? make : "Unknown";
+                this.model = (model) ? model : "Unknown";
+                this.year = (year) ? year : 2001;
+            }
+
+            var cars = new Array();
+            cars.push(new Car("Ford", "Focus", 2013));
+            cars.push(new Car("Ford", "Fusion", 2014));
+            cars.push(new Car("Ford", "Escape", 2015));
+
+
+            $(document).ready(function() {
+              var container = $("#result");
+              $(cars).each(function(i, car) {
+                  console.log("This is the index in the array", i);
+                  console.log("This is the element", car);
+
+                  var single = $("<ul />")
+                          .append($("<li />").text(car.make))
+                          .append($("<li />").text(car.model))
+                          .append($("<li />").text(car.year));
+
+                  container.append(single);
+              });
+
+              container.find("li:odd").addClass("alt-background");
+
+
+              //debugger;
+            });
+
+
+        </script>
+    </body>
+</html>

@@ -6,25 +6,25 @@
     <body>
         <script language="javascript" type="text/javascript">
             var all = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-            
-            for (var i = 0; i < all.length; i++) {
+
+            for (var i = 0; i < all.length; i+= 2) {
                 console.log("Current value", all[i]);
             }
-            
+
             for (var one in all) {
                 console.log("Current value", one);
             }
-            
+
             var index = 0;
             while (index < all.length && all[index] < 5) {
                 console.log("Current value while loop", all[index]);
-                index++; 
+                index++;
             }
-            
-            index = 0;
+
+            index = -1;
             do {
+                index++;
                 console.log("Current value do while loop", all[index]);
-                index++; 
             } while (index < all.length && all[index] < 5);
         </script>
     </body>

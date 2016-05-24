@@ -41,9 +41,9 @@
                 $(data).each(function(i, one) { 
                     if (!$.isEmptyObject(one)) {
                         var row = $("<tr />");
-                        row.append($("<td />").bigState(one.population).text(one.name));
-                        row.append($("<td />").bigState(one.population).text(one.abbreviation));
-                        row.append($("<td />").bigState(one.population).text(one.capital));      
+                        row.append($("<td />").text(one.name));
+                        row.append($("<td />").text(one.abbreviation));
+                        row.append($("<td />").text(one.capital));      
                         $("#container tbody").append(row);
                     }
                 });

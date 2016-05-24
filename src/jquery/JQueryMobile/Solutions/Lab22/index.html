@@ -1,4 +1,4 @@
-<!-- 
+<!--
     Let's setup a simple form and then echo the values out as a dialog
         Should have a first and last name
         Show a toggle switch asking if we're having fun
@@ -18,8 +18,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        
-        
+
+
         <!-- Start of first page: #one -->
 <div data-role="page" id="home">
 
@@ -28,7 +28,7 @@
 	</div><!-- /header -->
 
 	<div role="main" class="ui-content">
-		
+
         <form>
             <table>
                 <tr>
@@ -58,7 +58,7 @@
                 </tr>
             </table>
         </form>
-        
+
 	</div><!-- /content -->
 </div><!-- /page one -->
 
@@ -81,12 +81,12 @@
             <h4></h4>
         </div><!-- /footer -->
     </div><!-- /page popup -->
-    
+
         <script src="/common/js/jquery/jquery.js"></script>
         <script src="/common/js/jquery-mobile/jquery.mobile-1.4.5.js"></script>
-        
+
         <script language="javascript" type="text/javascript">
-             $("#popup").on( "pagecreate", function( event ) { 
+             $("#popup").on( "pageshow", function( event ) {
                  $("#valueForFirst").text($("#firstName").val());
                  $("#valueForLast").text($("#lastName").val());
                  $("#valueForFun").text($("#fun").val());

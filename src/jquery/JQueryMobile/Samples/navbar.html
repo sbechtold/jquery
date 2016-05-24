@@ -1,0 +1,128 @@
+<!-- Change this into a 3 page mobile appliction -->
+<!DOCTYPE html>
+    <html>
+     <head>
+         <title>JQuery UI</title>
+        <link href="/common/js/jquery-mobile/jquery.mobile-1.4.5.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.external-png-1.4.5.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.icons-1.4.5.min.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.inline-png-1.4.5.min.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.inline-svg-1.4.5.min.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.structure-1.4.5.min.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.theme-1.4.5.min.css" type="text/css" rel="stylesheet" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+
+
+        <!-- Start of first page: #one -->
+<div data-role="page" id="home">
+
+	<div data-role="header">
+		<h1>Multi-page</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<h2>Home</h2>
+
+		<p><a href="#PageOne" class="ui-btn ui-shadow ui-corner-all">Page One</a></p>
+        <p><a href="#PageTwo" class="ui-btn ui-shadow ui-corner-all">Page Two</a></p>
+        <p><a href="#PageThree" class="ui-btn ui-shadow ui-corner-all">Page Three</a></p>
+
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<div data-role="navbar">
+			<ul>
+				<li> <a href="#home" class="ui-btn-active"> Home </a></li>
+				<li> <a href="#PageOne"> Page One </a></li>
+				<li> <a href="#PageTwo"> Page Two</a></li>
+				<li> <a href="#PageThree"> Page Three</a></li>
+			</ul>
+		</div>
+    </div>
+</div><!-- /page one -->
+
+<!-- Start of second page: #PageOne -->
+<div data-role="page" id="PageOne">
+
+	<div data-role="header">
+		<h1>Page One</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<p>
+           This is page 1 content
+        </p>
+	</div><!-- /content -->
+	<div data-role="footer">
+		<div data-role="navbar">
+			<ul>
+				<li> <a href="#home"> Home </a></li>
+				<li> <a href="#PageOne" class="ui-btn-active"> Page One </a></li>
+				<li> <a href="#PageTwo"> Page Two</a></li>
+				<li> <a href="#PageThree"> Page Three</a></li>
+			</ul>
+		</div>
+    </div>
+</div><!-- /page PageOne -->
+
+<!-- Start of second page: #PageTwo -->
+<div data-role="page" id="PageTwo">
+
+	<div data-role="header">
+		<h1>Page Two</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<p>
+            This is page 2 content
+        </p>
+	</div><!-- /content -->
+	<div data-role="footer">
+		<div data-role="navbar">
+			<ul>
+				<li> <a href="#home"> Home </a></li>
+				<li> <a href="#PageOne"> Page One </a></li>
+				<li> <a href="#PageTwo" class="ui-btn-active"> Page Two</a></li>
+				<li> <a href="#PageThree"> Page Three</a></li>
+			</ul>
+		</div>
+    </div>
+</div><!-- /page PageTwo -->
+
+<!-- Start of second page: #PageThree -->
+<div data-role="page" id="PageThree" data-theme="a">
+
+	<div data-role="header">
+		<h1>Page Three</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<p>
+            This is Page 3 Content.
+         </p>
+	</div><!-- /content -->
+	<div data-role="footer">
+		<div data-role="navbar">
+			<ul>
+				<li> <a href="#home"> Home </a></li>
+				<li> <a href="#PageOne"> Page One </a></li>
+				<li> <a href="#PageTwo"> Page Two</a></li>
+				<li> <a href="#PageThree" class="ui-btn-active"> Page Three</a></li>
+			</ul>
+		</div>
+    </div>
+</div><!-- /page PageThree -->
+
+
+
+        <script src="/common/js/jquery/jquery.js"></script>
+        <script src="/common/js/jquery-mobile/jquery.mobile-1.4.5.js"></script>
+
+        <script language="javascript" type="text/javascript">
+
+
+        </script>
+    </body>
+</html>

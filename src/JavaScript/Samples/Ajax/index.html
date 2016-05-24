@@ -4,23 +4,17 @@
         <title>Javascript Ajax</title>
     </head>
     <body>
-        
-        <div id="result"></div>
-        
-        <script language="javascript" type="text/javascript">    
-            var xmlhttp = new XMLHttpRequest();
-            var url = "http://localhost:7081/Products";
 
-            xmlhttp.onreadystatechange = function() {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    var myArr = JSON.parse(xmlhttp.responseText);
-                    receiveResponse(myArr);
-                }
-            };
-            xmlhttp.open("GET", url, true);
-            xmlhttp.send();
+        <div id="result" style="width:150px;border:1px solid black; margin-right:5px;float:left"></div>
+        <div id="resultStates" style="width:150px;border:1px solid black; margin-right:5px;float:left"></div>
 
-            function receiveResponse(arr) {
+          <br clear="all" />
+
+        <script language="javascript" type="text/javascript">
+
+        debugger;
+
+            function receiveProducts(arr) {
                 var out = "";
                 var i;
                 for(i = 0; i < arr.length; i++) {
@@ -28,7 +22,41 @@
                 }
                 document.getElementById("result").innerHTML = out;
             }
-        
+
+            function receiveStates(arr) {
+                var out = "";
+                var i;
+                for(i = 0; i < arr.length; i++) {
+                    out += '<div>' + arr[i].name + '</div>';
+                }
+                document.getElementById("resultStates").innerHTML = out;
+            }
+
+            function makeRequestAndDownloadJSON(url, callback) {
+              var xmlhttp = new XMLHttpRequest();
+              xmlhttp.onreadystatechange = function() {
+                  if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                      var myArr = JSON.parse(xmlhttp.responseText);
+                      callback(myArr);
+                  }
+                  else if (xmlhttp.readyState == 1) {
+                    console.log("The ready state was set to open", xmlhttp)
+                  }
+                  else if (xmlhttp.readyState == 2) {
+                    console.log("the ready state was sent", xmlhttp);
+                  }
+                  else if (xmlhttp.readyState == 3) {
+                    console.log("Interpreter is running the request", xmlhttp);
+                  }
+              };
+              xmlhttp.open("GET", url);
+              xmlhttp.send();
+            }
+
+
+            var url = "http://localhost:7081/Products";
+            makeRequestAndDownloadJSON(url, receiveProducts);
+            makeRequestAndDownloadJSON("http://localhost:7081/states", receiveStates);
         </script>
     </body>
 </html>

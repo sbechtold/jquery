@@ -4,7 +4,7 @@
         <title>Javascript Events</title>
     </head>
     <body>
-        
+
         <table id="container">
             <tbody />
             <tfoot>
@@ -16,25 +16,25 @@
                     <td><input type="button" id="doAdd" value="+" /></td>
             </tfoot>
         </table>
-        
-        
-         
-        
+
+
+
+
         <script src="/common/js/jquery/jquery.js"></script>
         <script src="/common/data/people.js"></script>
         <script language="javascript" type="text/javascript">
-        
+
             /*
             Working with our array of people again we want to be able to do the following
                 - Bind the array to the table above
                 - Add a button to each row so that we can remove data from the array
                 - Get the values from the form to populate a new person into the array
-                - Bind a click event to the doAdd button  
+                - Bind a click event to the doAdd button
             */
-        
+
             function bind(data) {
                 $("#container tbody").empty();
-                $(data).each(function(i, one) { 
+                $(data).each(function(i, one) {
                     if (!$.isEmptyObject(one)) {
                         var row = $("<tr />");
                         row.append($("<td />").text(i).addClass("indexEl"));
@@ -48,42 +48,42 @@
                                         .bind("click", function (evt) {
                                             removeRow(i);
                                         })
-                                   );                        
+                                   );
                         $("#container tbody").append(row);
                     }
                 });
-                
+
                 $("#container tbody tr:odd").find("td").css("background", "grey");
                 $("#container").attr("cellspacing", 0);
                 $("#container").attr("cellpadding", 5);
             }
-            
+
             function removeRow(index) {
                 people.splice(index, 1);
                 bind(people);
             }
-            
+
             function addPerson() {
                 var person = new Person($("#firstName").val(), $("#lastName").val(), $("#age").val());
                 people.push(person);
-                
+
                 $("#firstName").val("");
                 $("#lastName").val("");
                 $("#age").val("");
                 bind(people);
             }
-            
+
             $(document).ready(function() {
                 if ($.isArray(people)) {
                     bind(people);
-                    
+
                     $("#doAdd").bind("click", function(evt) {
-                       addPerson(); 
+                       addPerson();
                     });
                 }
             });
-            
-        
+
+
         </script>
     </body>
 </html>

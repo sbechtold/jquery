@@ -4,39 +4,45 @@
         <title>Javascript Variables</title>
     </head>
     <body>
-        
+
         <div id="result"></div>
-        
-        <script language="javascript" type="text/javascript">    
+
+        <script language="javascript" type="text/javascript">
 
             /*
-            
+
                 Define two functions
-                    - One which will sum all the values in the array and return the 
+                    - One which will sum all the values in the array and return the
                         result
                     - One which will sum all the values to an upper bound and return
                         either the sum of the array or the max value
             */
-            
+
             function sum(all) {
                 var result = 0;
                 for (var index = 0; index < all.length; index++) {
                     result += all[index];
                 }
+
+                for (var index in all) {
+                    result += all[index];
+                }
+
+
                 return result;
             }
-            
+
             function sumTo(all, maxValue) {
                 var index = 0, result = 0;
                 while (index < all.length && result < maxValue) {
                     result += all[index];
                     if (result > maxValue) {
                         result = maxVaule;
-                    }   
+                    }
                 }
                 return result;
             }
-            
+
             console.log("sum array", sum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
             console.log("sum array to 15", sumTo([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 15));
         </script>

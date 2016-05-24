@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+    <html>
+     <head>
+        <title>Javascript Events</title>
+
+        <style>
+
+          .alt-background {
+            background-color: #a1a1a1;
+          }
+
+          .focus {
+            background:red;
+          }
+        </style>
+    </head>
+    <body>
+
+        <div id="result" class="results">
+        </div>
+
+        <input type="button" class="doWork" text="Click" value="Click" />
+
+        <input type="text" id="carMake" class="manageCar" />
+        <input type="text" id="carModel" class="manageCar" />
+        <input type="text" id="carYear" class="manageCar" />
+        <input type="button" id="addCar" name="hello" class="addCar" value="Add Car" text="Add Car" />
+
+        <script src="/common/js/jquery/jquery.js"></script>
+        <script language="javascript" type="text/javascript">
+
+
+            function Car(make, model, year) {
+                this.make = (make) ? make : "Unknown";
+                this.model = (model) ? model : "Unknown";
+                this.year = (year) ? year : 2001;
+            }
+
+            var cars = new Array();
+            cars.push(new Car("Ford", "Focus", 2013));
+            cars.push(new Car("Ford", "Fusion", 2014));
+            cars.push(new Car("Ford", "Escape", 2015));
+
+
+            $(document).ready(function() {
+              var container = $("#result");
+              $(cars).each(function(i, car) {
+                  console.log("This is the index in the array", i);
+                  console.log("This is the element", car);
+
+                  var single = renderCar(car);
+                  single.on("my-custom-event", function(evnt) {
+                    console.log(evnt);
+                  });
+                  container.append(single);
+              });
+
+
+              function renderCar(car) {
+                var single = $("<ul />")
+                        .append($("<li />").text(car.make))
+                        .append($("<li />").text(car.model))
+                        .append($("<li />").text(car.year));
+
+                 return single;
+              }
+              container.find("li:odd").addClass("alt-background");
+
+              $("#addCar").click(function() {
+                  var car = new Car(
+                    $("#carMake").val(),
+                    $("#carModel").val(),
+                    parseInt($("#carYear").val())
+                  );
+                  cars.push(car);
+                  $("#result").append(renderCar(car));
+                  $(".manageCar").val("");
+              });
+
+
+              $(".results ul li").hover(
+                  function() {
+                    $(this).addClass("focus");
+                },
+                function () {
+                  $(this).removeClass("focus");
+                }
+              );
+
+              $(".doWork").click(function(evnt) {
+                  console.log(evnt);
+                  raiseCustomEvent();
+              });
+
+
+            });
+
+
+        </script>
+    </body>
+</html>

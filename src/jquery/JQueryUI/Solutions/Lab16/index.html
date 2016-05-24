@@ -5,7 +5,7 @@
         <link href="/common/js/jquery-ui/jquery-ui.css" type="text/css" rel="stylesheet" />
         <link href="/common/js/jquery-ui/jquery-ui.theme.css" type="text/css" rel="stylesheet" />
         <link href="/common/js/jquery-ui/jquery-ui.structure.css" type="text/css" rel="stylesheet" />
-        
+
         <style>
             .droppable {
                 padding:10pt;
@@ -13,79 +13,87 @@
                 min-height: 400px;
                 min-width:150px;
                 margin-right:10pt;
-            }    
+            }
             .ui-widget-content  {
                 padding:5pt;
             }
          </style>
     </head>
     <body>
-        
+
         <div id="loading" style="padding:10pt;text-align:center">
             <h2>Loading</h2>
         </div>
-        
-        
-        <div id="container">            
+
+
+        <div id="container">
             <div id="available" class="droppable">
                 <h2>Available</h2>
             </div>
         </div>
         <br clear="all" />
-        
-         
-        
+
+
+
         <script src="/common/js/jquery/jquery.js"></script>
         <script src="/common/js/jquery-ui/jquery-ui.js"></script>
-        
+
         <script language="javascript" type="text/javascript">
-        
+
             /*
-                Create a simple plugin that turns all of our text a given color; you should
-                make sure your plugin has a default value in the event a user hasn't provided
-                a color
-                
+                Create a simple plugin that turns all of our text a given color, border, & background;
+                 you should make sure your plugin has a default value in the event a user hasn't 
+                 provided a color;
+
                 You should apply the plugin to the divs that are showing the state
             */
-            
+
             (function ( $ ) {
-                var defaultShade = "#556b2f";
-            
-                $.fn.colorize = function(shade) {
-                    this.css( "color", (shade) ? shade :  defaultShade);
-                    return this;
-                };
-            
+
+                  var defaultConfig = { color: "white", border:"1px solid black", background:"gray" };
+
+                  $.fn.alternate = function(config) {
+                      if (!config)
+                        config = {};
+                      $.extend(true, config, defaultConfig);
+                      
+                      this.css( "color", config.color);
+                      this.css( "border", config.border);
+                      this.css( "background", config.background);
+                      
+                      return this;
+                  };
+
             }( jQuery ));
-        
+
             function getStates() {
                 $.getJSON("http://localhost:7081/States", function(states) {
                     bind(states);
-                    
+
                     $("#loading").hide();
                     $("#container").show();
                 });
             }
-        
+
             function bind(data) {
-                $(data).each(function(i, one) { 
+                $(data).each(function(i, one) {
                     if (!$.isEmptyObject(one)) {
                         var state = $("<div />")
-                                .colorize()
                                 .text(one.name);
-                        $("#available").append(state);        
+                        $("#available").append(state);
                     }
+                    $("#available > div:odd").alternate();
                 });
             }
-            
+
             $(document).ready(function() {
                 $("#loading").show();
                 $("#container").hide();
-                
+
                 getStates();
             });
-            
-        
+
+
         </script>
     </body>
 </html>

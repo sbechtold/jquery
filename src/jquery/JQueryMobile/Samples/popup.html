@@ -1,0 +1,120 @@
+
+<!-- Change this into a 3 page mobile appliction -->
+<!DOCTYPE html>
+    <html>
+     <head>
+         <title>JQuery UI</title>
+        <link href="/common/js/jquery-mobile/jquery.mobile-1.4.5.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.external-png-1.4.5.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.icons-1.4.5.min.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.inline-png-1.4.5.min.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.inline-svg-1.4.5.min.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.structure-1.4.5.min.css" type="text/css" rel="stylesheet" />
+        <link href="/common/js/jquery-mobile/jquery.mobile.theme-1.4.5.min.css" type="text/css" rel="stylesheet" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        
+        
+        <!-- Start of first page: #one -->
+<div data-role="page" id="home">
+
+	<div data-role="header">
+		<h1>Multi-page</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<h2>Home</h2>
+
+		<p><a href="#PageOne" class="ui-btn ui-shadow ui-corner-all">Page One</a></p>
+        <p><a href="#PageTwo" class="ui-btn ui-shadow ui-corner-all">Page Two</a></p>
+        <p><a href="#PageThree" class="ui-btn ui-shadow ui-corner-all">Page Three</a></p>
+        
+	</div><!-- /content -->
+
+	<div data-role="footer" data-theme="a">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page one -->
+
+<!-- Start of second page: #PageOne -->
+<div data-role="page" id="PageOne" data-theme="a">
+
+	<div data-role="header">
+		<h1>Page One</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<p>
+           This is page 1 content
+        </p>
+		<p><a href="#home" data-direction="reverse" class="ui-btn ui-shadow ui-corner-all ui-btn-b">Back to Home</a></p>
+		<p><a href="#popup" class="ui-btn ui-shadow ui-corner-all" data-rel="dialog" data-transition="pop">Goto Other</a></p>
+
+	</div><!-- /content -->
+</div><!-- /page PageOne -->
+
+<!-- Start of second page: #PageTwo -->
+<div data-role="page" id="PageTwo" data-theme="a">
+
+	<div data-role="header">
+		<h1>Page Two</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<p>
+            This is page 2 content    
+        </p>
+		<p><a href="#home" data-direction="reverse" class="ui-btn ui-shadow ui-corner-all ui-btn-b">Back to Home</a></p>
+		<p><a href="#popup" class="ui-btn ui-shadow ui-corner-all" data-rel="dialog" data-transition="pop">Goto Other</a></p>
+
+	</div><!-- /content -->
+</div><!-- /page PageTwo -->
+
+<!-- Start of second page: #PageThree -->
+<div data-role="page" id="PageThree" data-theme="a">
+
+	<div data-role="header">
+		<h1>Page Three</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<p>
+            This is Page 3 Content.   
+         </p>
+		<p><a href="#home" data-direction="reverse" class="ui-btn ui-shadow ui-corner-all ui-btn-b">Back to Home</a></p>
+		<p><a href="#popup" class="ui-btn ui-shadow ui-corner-all" data-rel="dialog" data-transition="pop">Goto Other</a></p>
+	</div><!-- /content -->
+</div><!-- /page PageThree -->
+
+
+    <div data-role="page" id="popup">
+
+        <div data-role="header" data-theme="b">
+            <h1>Select Page</h1>
+        </div><!-- /header -->
+
+        <div role="main" class="ui-content">
+            <h2>Navigate to Page</h2>
+            <p><a href="#PageOne" class="ui-btn ui-shadow ui-corner-all">Page One</a></p>
+			<p><a href="#PageTwo" class="ui-btn ui-shadow ui-corner-all">Page Two</a></p>
+			<p><a href="#PageThree" class="ui-btn ui-shadow ui-corner-all">Page Three</a></p>
+
+        </div><!-- /content -->
+
+        <div data-role="footer">
+            <h4></h4>
+        </div><!-- /footer -->
+    </div><!-- /page popup -->
+        
+         
+        
+        <script src="/common/js/jquery/jquery.js"></script>
+        <script src="/common/js/jquery-mobile/jquery.mobile-1.4.5.js"></script>
+        
+        <script language="javascript" type="text/javascript">
+        
+        
+        </script>
+    </body>
+</html>
