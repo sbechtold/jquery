@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+    <html>
+     <head>
+        <title>Sample Forms</title>
+    </head>
+    <body>
+        <h1>Form</h1>
+
+
+        <form name="CarEntry" method="GET">
+            <table>
+                <thead />
+                <tbody>
+                    <tr>
+                        <th>Make</th>
+                        <td>
+                            <select name="make" id="make">
+                                <option value="" label="[Please Choose]">[Please Choose]</option>
+                                <option value="Ford" label="Ford">Ford</option>
+                                <option value="Chevorlet" label="Chevorlet">Chevorlet</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Model</th>
+                        <td><input type="text" name="make" id="make" /></td>
+                    </tr>
+                    <tr>
+                        <th>Year</th>
+                        <td><input type="text" name="year" id="year" /></td>
+                    </tr>
+                    <tr>
+                        <th>Options</th>
+                        <td>
+                            <input type="checkbox" name="awd" id="awd" value="awd"><label for="awd">AWD</label>
+                            <input type="checkbox" name="leather" id="leather" value="leather"><label for="leather">Leather</label>
+                            <input type="checkbox" name="bucket" id="bucket" value="bucket"><label for="bucket">Bucket Seats</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Fuel</th>
+                        <td>  
+                            <input type="radio" name="fuel" id="fuelElectric" value="Electric"><label for="fuelElectric">Electric</label>
+                            <input type="radio" name="fuel" id="fuelGas" value="Gas"><label for="fuelGas">Gas</label>
+                            <input type="radio" name="fuel" id="fuelDiesel" value="Diesel"><label for="fuelDiesel">Diesel</label>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                        <tr>
+                            <td />
+                            <td>
+                                <input type="submit" value="Save" />
+                                <input type="button" value="Cancel" />
+                        </tr>
+                </tfoot>
+            </table>
+        </form>
+        
+    </body>
+</html>
